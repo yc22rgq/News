@@ -5,8 +5,6 @@
 //  Created by Эдуард Кудянов on 28.04.25.
 //
 
-// Presentation/Modules/NewsDetail/NewsDetailViewModel.swift
-
 import Foundation
 
 final class NewsDetailViewModel {

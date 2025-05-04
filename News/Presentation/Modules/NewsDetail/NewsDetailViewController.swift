@@ -127,19 +127,12 @@ final class NewsDetailViewController: UIViewController {
         contentLabel.text = viewModel.news.content ?? ""
         contentLabel.font = .systemFont(ofSize: 16)
         contentLabel.numberOfLines = 0
-        
-        let safariButton = UIButton(type: .system)
-//        safariButton.setTitle("Открыть в Safari", for: .normal)
-//        safariButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-//        safariButton.setTitleColor(.systemBlue, for: .normal)
-//        safariButton.addTarget(self, action: #selector(openInSafari), for: .touchUpInside)
 
         contentStackView.addArrangedSubview(imageView)
         contentStackView.addArrangedSubview(titleLabel)
         contentStackView.addArrangedSubview(authorLabel)
         contentStackView.addArrangedSubview(dateLabel)
         contentStackView.addArrangedSubview(contentLabel)
-        contentStackView.addArrangedSubview(safariButton)
     }
     
     var formattedDate: String {
