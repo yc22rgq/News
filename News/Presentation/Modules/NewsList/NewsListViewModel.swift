@@ -45,6 +45,24 @@ final class NewsListViewModel {
         }
     }
     
+    func fetchNews(for category: NewsCategory) {
+        onLoadingStateChange?(true)
+        
+        repository.getTopHeadlines(category: category.apiValue) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.onLoadingStateChange?(false)
+                
+                switch result {
+                case .success(let news):
+                    self?.news = news
+                    self?.onNewsUpdate?()
+                case .failure(let error):
+                    self?.onError?(self?.mapError(error) ?? "Unknown error")
+                }
+            }
+        }
+    }
+    
     func getNews(at index: Int) -> News? {
         guard index >= 0 && index < news.count else { return nil }
         return news[index]

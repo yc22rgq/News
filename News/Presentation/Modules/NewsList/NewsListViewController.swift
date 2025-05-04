@@ -15,6 +15,18 @@ final class NewsListViewController: UIViewController {
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     private let refreshControl = UIRefreshControl()
     
+    private let categoriesCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 8
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
+    private var selectedCategory: NewsCategory = .general
+    
     // MARK: - Properties
     
     private let viewModel = NewsListViewModel()
@@ -38,17 +50,29 @@ final class NewsListViewController: UIViewController {
         title = "Top Headlines"
         view.backgroundColor = .systemBackground
         
+        categoriesCollectionView.delegate = self
+        categoriesCollectionView.dataSource = self
+        categoriesCollectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
+        categoriesCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        
         tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(tableView)
         view.addSubview(activityIndicator)
+        view.addSubview(categoriesCollectionView)
         
         NSLayoutConstraint.activate([
+            categoriesCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            categoriesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            categoriesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            categoriesCollectionView.heightAnchor.constraint(equalToConstant: 50),
+            
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -143,5 +167,34 @@ extension NewsListViewController: UITableViewDelegate {
         let detailVC = NewsDetailViewController(viewModel: detailViewModel)
         
         navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+extension NewsListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return NewsCategory.allCases.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as? CategoryCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        let category = NewsCategory.allCases[indexPath.item]
+        cell.configure(with: category)
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedCategory = NewsCategory.allCases[indexPath.item]
+        viewModel.fetchNews(for: selectedCategory)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let category = NewsCategory.allCases[indexPath.item]
+        let width = category.rawValue.size(withAttributes: [.font: UIFont.systemFont(ofSize: 14, weight: .medium)]).width + 24
+        return CGSize(width: width, height: 32)
     }
 }
