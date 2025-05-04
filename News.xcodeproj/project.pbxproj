@@ -6,7 +6,18 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		FC3AEF2F2DC7650C00359AEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC5F47442DBFF3B7004F9A4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC5F474B2DBFF3B7004F9A4A;
+			remoteInfo = News;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		FC3AEF2B2DC7650C00359AEF /* NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5F474C2DBFF3B7004F9A4A /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -21,6 +32,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		FC3AEF2C2DC7650C00359AEF /* NewsTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NewsTests;
+			sourceTree = "<group>";
+		};
 		FC5F474E2DBFF3B7004F9A4A /* News */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -32,6 +48,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FC3AEF282DC7650C00359AEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FC5F47492DBFF3B7004F9A4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				FC5F474E2DBFF3B7004F9A4A /* News */,
+				FC3AEF2C2DC7650C00359AEF /* NewsTests */,
 				FC5F474D2DBFF3B7004F9A4A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				FC5F474C2DBFF3B7004F9A4A /* News.app */,
+				FC3AEF2B2DC7650C00359AEF /* NewsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +86,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FC3AEF2A2DC7650C00359AEF /* NewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC3AEF312DC7650C00359AEF /* Build configuration list for PBXNativeTarget "NewsTests" */;
+			buildPhases = (
+				FC3AEF272DC7650C00359AEF /* Sources */,
+				FC3AEF282DC7650C00359AEF /* Frameworks */,
+				FC3AEF292DC7650C00359AEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC3AEF302DC7650C00359AEF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				FC3AEF2C2DC7650C00359AEF /* NewsTests */,
+			);
+			name = NewsTests;
+			packageProductDependencies = (
+			);
+			productName = NewsTests;
+			productReference = FC3AEF2B2DC7650C00359AEF /* NewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FC5F474B2DBFF3B7004F9A4A /* News */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC5F475F2DBFF3B8004F9A4A /* Build configuration list for PBXNativeTarget "News" */;
@@ -93,6 +141,10 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
+					FC3AEF2A2DC7650C00359AEF = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = FC5F474B2DBFF3B7004F9A4A;
+					};
 					FC5F474B2DBFF3B7004F9A4A = {
 						CreatedOnToolsVersion = 16.3;
 					};
@@ -113,11 +165,19 @@
 			projectRoot = "";
 			targets = (
 				FC5F474B2DBFF3B7004F9A4A /* News */,
+				FC3AEF2A2DC7650C00359AEF /* NewsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FC3AEF292DC7650C00359AEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FC5F474A2DBFF3B7004F9A4A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +188,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FC3AEF272DC7650C00359AEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FC5F47482DBFF3B7004F9A4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,7 +204,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		FC3AEF302DC7650C00359AEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC5F474B2DBFF3B7004F9A4A /* News */;
+			targetProxy = FC3AEF2F2DC7650C00359AEF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		FC3AEF322DC7650C00359AEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FDD7VTS5S8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yc22rgq.NewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/News.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/News";
+			};
+			name = Debug;
+		};
+		FC3AEF332DC7650C00359AEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FDD7VTS5S8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yc22rgq.NewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/News.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/News";
+			};
+			name = Release;
+		};
 		FC5F47602DBFF3B8004F9A4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -318,6 +429,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FC3AEF312DC7650C00359AEF /* Build configuration list for PBXNativeTarget "NewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC3AEF322DC7650C00359AEF /* Debug */,
+				FC3AEF332DC7650C00359AEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FC5F47472DBFF3B7004F9A4A /* Build configuration list for PBXProject "News" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
