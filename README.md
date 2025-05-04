@@ -72,19 +72,20 @@
 ```
 NewsReaderApp/
 ├── Data/
-│   ├── Services/
-│   ├── Storage/
+│   ├── Models/
+│   ├── Network/
+│   ├── Persistence/
+│   └── RepositoriesImpl/
 ├── Domain/
-│   └── Entities/
+│   ├── Entities/
+│   └── Repositories/
 ├── Presentation/
 │   ├── Modules/
+│   ├── Views/
 │   └── Common/
 ├── Resources/
 ├── SupportingFiles/
-├── Tests/
-│   ├── Helpers/
-│   ├── Services/
-│   └── Domain/
+└── Tests/
 ```
 
 ---
