@@ -9,7 +9,7 @@ import Foundation
 
 final class NewsService {
     
-    private let apiKey = "b153286e41fb4d808d54166d7fb34102" // ⚡ ВСТАВЬ СВОЙ КЛЮЧ ОТСЮДА: https://newsapi.org/
+    private let apiKey = "b153286e41fb4d808d54166d7fb34102"
     private let baseURL = "https://newsapi.org/v2/top-headlines"
     
     func fetchTopHeadlines(category: String? = nil, completion: @escaping (Result<[News], NetworkError>) -> Void) {
